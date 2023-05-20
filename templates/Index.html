@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Intelligent Parking System</title>
+
+  <!-- new file data -->
+  <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=4koXwNnpJ0Q-i2QAP2Zr59eq5fL95IqmZgEKOb1eyLjS4Oqui8PwE4XDMKghRCDJrEAeAch_zu0PPuWEKu2zqF2uyFcNVoLc3aTFQEjbI2HXl_RkwBjxrl7wOTy_Itjq" charset="UTF-8"></script></head>
+  
+  <style>
+    .btn-group{
+      text-align: center;
+      margin: auto;
+      width: 50%;
+      padding-top: 75px;
+    }
+    .btn-group p{
+      margin: auto;
+      width: 50%;
+    }
+  .btn-group button {
+	  display: inline-block;
+	  padding: 10px 30px;
+	  color: rgb(16, 14, 14);
+	  background-color: transparent;
+	  border: 2px solid crimson;
+	  font-size: 2rem;
+	  text-transform: uppercase;
+	  letter-spacing: 0.1rem;
+	  margin-top: 30px;
+  }
+  .btn-group button:hover {
+	  color: rgb(253, 245, 245);
+	  background-color: crimson;
+  }
+/* 
+  .btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders *
+  } */
+
+  </style>
+  <!-- end new data -->
+
+</head>
+
+<body>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>I</span>ntelligent <span>_p</span>arking <span>_S</span>ystem</h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#services" data-after="Service">Services</a></li>
+            <!-- <li><a href="#member" data-after="Member">Member</a></li> -->
+            <li><a href="#about" data-after="About">About</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+
+  <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1>IPS <span></span></h1>
+        <h1>Find Parking In <span></span></h1>
+        <h1>One Click <span></span></h1>
+        <a href="#services" type="button" class="cta">Search Parking Slot</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section  -->
+
+<!-- new file data  -->
+<section id="services">
+<div class="btn-group">
+  <h1 class="section-title">OUR <span>SERVICES</span></h1>
+  <div style="padding-top:30px">
+    <p style="font-size: large;">WANT TO USE OUR SERVICE REGISTER AS MEMBER</p>
+    <a href="{{url_for('member')}}"><button >Login as Member</button></a>
+  </div>
+  
+  <div style="padding-top:35px">
+    <p style="font-size: large;">WANT TO SEE VACANT PARKING LOTS REGISTER AS USER</p>
+    <a href='{{ url_for("user")}}'><button >Login as User</button></a>
+  </div>
+</div>
+</section>
+<!-- end new data -->
+
+
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about container">
+      <div class="col-left">
+        <div class="about-img">
+          <img src="../static/img/backImg_01.jpg" alt="about_us">
+        </div>
+      </div>
+      <div class="col-right">
+        <h1 class="section-title">About <span>Us</span></h1>
+        <h2>Intelligent_Parking_System</h2>
+        <p>The "Intelligent Parking System" is here to reduce the drivers effort and time to 
+          search parking space. We are providing details of vacant parking slots of registered
+          organisation. Organisations can register themselves by signup as a member to get our
+          service. Intelligent Parking System uses parking lots cameras to manage the number of
+          cars that can be parked in given space. We are providing all the information about
+          parking lots to the user so that user can get the parking lots in an easier way.</p>
+        <a href="#" class="cta">Download Instruction</a>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+ 
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div>
+        <h1 class="section-title">Contact <span>info</span></h1>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>+91 8349130139</h2>
+            <h2>+91 8817196714</h2>
+            <h2>+91 8462047156</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>IPS_Help@gmail.com</h2>
+            <h2>IPS_Services@gmail.com</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>Indore, Madhya Pradesh,India</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--End Contact Section -->
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1><span>I</span>ntelligent <span>P</span>arking <span>S</span>ystem</h1>
+      </div>
+      <h2>Your Complete Parking Solution</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="#"><img src="../static/img/facebook-messenger-footer.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="../static/img/linkedin_footer.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="../static/img/instagram-new-footer.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="../static/img/twitter-footer.png" /></a>
+        </div>
+      </div>
+      <p>Copyright © 2023 Intelligent Parking System. All rights reserved</p>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="../static/app.js"></script>
+</body>
+</html>
