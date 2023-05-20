@@ -40,7 +40,7 @@ class IPS_db:
                     valid_user = True
         except:   
             print('Error:Unable to fetch data.')
-        self.mysqldb.close()#Connection Close
+        #self.mysqldb.close()#Connection Close
         return valid_user        
     
     def insert_member(self, fname, email, contact, address, password):
