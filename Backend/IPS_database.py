@@ -25,7 +25,7 @@ class IPS_db:
             # rollback used for if any error   
             self.mysqldb.rollback()  
             print("Error occured during insertion...")
-        self.mysqldb.close()#Connection Close  
+        #self.mysqldb.close()#Connection Close  
 
 
     def match_user_data(self, email, password):
@@ -54,7 +54,7 @@ class IPS_db:
             # rollback used for if any error   
             self.mysqldb.rollback() 
             print("Error occured during insertion...")
-        self.mysqldb.close()#Connection Close  
+        #self.mysqldb.close()#Connection Close  
     
     def match_member_data(self, email, password):
         mycursor = self.mysqldb.cursor()#cursor() method create a cursor object 
@@ -68,7 +68,7 @@ class IPS_db:
                     valid_member = True
         except:   
             print('Error:Unable to fetch data...')
-        self.mysqldb.close()#Connection Close
+        #self.mysqldb.close()#Connection Close
         return valid_member        
     
     def add_company_info(self, company, address, block, slots, ip_address, email):
@@ -82,7 +82,7 @@ class IPS_db:
             # rollback used for if any error   
             self.mysqldb.rollback() 
             print("Error occured during insertion...")
-        self.mysqldb.close()#Connection Close  
+        #self.mysqldb.close()#Connection Close  
 
     def update_company_info(self, company, address, block, slots, ip_address, email, id):
         mycursor = self.mysqldb.cursor()#cursor() method create a cursor object    
@@ -95,7 +95,7 @@ class IPS_db:
             # rollback used for if any error   
             self.mysqldb.rollback()  
             print("Error occured during updation...")
-        self.mysqldb.close()#Connection Close  
+        #self.mysqldb.close()#Connection Close  
     
     def insert_booking_details(self, company, parking_time, parking_duration, contact, email, name, vehicle_no, amount):
         mycursor = self.mysqldb.cursor()#cursor() method create a cursor object    
@@ -108,4 +108,4 @@ class IPS_db:
             # rollback used for if any error   
             self.mysqldb.rollback() 
             print("Error occured during insertion...")
-        self.mysqldb.close()#Connection Close  
+        #self.mysqldb.close()#Connection Close  
