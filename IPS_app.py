@@ -48,13 +48,16 @@ def user_signup():
 def user_login():
     # instance of database
     db = IPS_db(mysql)
+    error_message = None
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         # match data from user_table
         if db.match_user_data(email, password):
             return redirect(url_for('user_dashboard', name = email))
-    return  redirect(url_for('user'))
+        else
+            error_message = "Invalid Username or Password"
+    return  render_template('Customer/login.html', error_message=error_message)
 
 @app.route('/user/<name>/dashboard')
 def user_dashboard(name):
