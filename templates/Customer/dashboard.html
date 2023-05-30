@@ -422,7 +422,7 @@
     wrapper.classList.remove("active");
     selectBtn.firstElementChild.innerText = selectedLi.innerText;
     document.getElementById('table_content').innerHTML = '<tr> <td colspan="5" style="text-align:center; color:blue; font-size:20px"> Loading... </td> </tr>';
-    location.replace("http://127.0.0.1:5000//user//dashboard//"+ selectedLi.innerText +"?name=" + '{{name}}');
+    location.replace("http://ips-minor-project.onrender.com//user//dashboard//"+ selectedLi.innerText +"?name=" + '{{name}}');
   }
 
   searchInp.addEventListener("keyup", () => {
