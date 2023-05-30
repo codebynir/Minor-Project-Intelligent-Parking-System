@@ -56,7 +56,7 @@ def user_login():
         if db.match_user_data(email, password):
             return redirect(url_for('user_dashboard', name = email))
         else:
-            error_message = "Invalid Username or Password"
+            error_message = "Invalid Username or Password, Login Again!!"
     return  render_template('Customer/login_page/user.html', error_message=error_message)
 
 @app.route('/user/<name>/dashboard')
