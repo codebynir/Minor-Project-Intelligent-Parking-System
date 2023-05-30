@@ -422,7 +422,10 @@
     wrapper.classList.remove("active");
     selectBtn.firstElementChild.innerText = selectedLi.innerText;
     document.getElementById('table_content').innerHTML = '<tr> <td colspan="5" style="text-align:center; color:blue; font-size:20px"> Loading... </td> </tr>';
-    location.replace("/user/dashboard/"+ selectedLi.innerText +"?name=" + '{{name}}');
+//     location.href = "/user/dashboard/"+ selectedLi.innerText +"?name=" + '{{name}}');
+    var company = selectedLi.innerText;
+    var name = "{{ name }}";  // Assuming you have the 'name' variable available in your template
+    window.location.href = `/user/dashboard/${company}?name=${name}`;
   }
 
   searchInp.addEventListener("keyup", () => {
