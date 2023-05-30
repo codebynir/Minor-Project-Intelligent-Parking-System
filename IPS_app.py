@@ -66,8 +66,11 @@ def user_dashboard(name):
     u_name = cursor.fetchall()
     return render_template('Customer/dashboard.html', companies_name = company_info, data = '', name = name, u_name = u_name)
 
-@app.route('/user/dashboard/<company>')
+@app.route('/user/dashboard/update', methods=['GET', 'POST'])
 def user_dashboard_update(company):
+    # retrieve the values from the submitted form
+    company = request.args.get('company')
+    name = request.args.get('name')
     # making connection and creating a cursor
     cursor = mysql.connection.cursor()
     cursor.execute('Select distinct(company) from company_table;')
@@ -85,7 +88,6 @@ def user_dashboard_update(company):
         # subtracting total vehicle count from total parking slots to get available vacant slots
         data[i].append(int(data[i][3]) - int(d))
     # Now data contain - [company, address, block, slots, vacant slots]
-    name = request.args.get('name')
     cursor.execute(f'Select fname from user_table where email="{name}";')
     u_name = cursor.fetchall()
     return render_template('Customer/dashboard.html', companies_name = company_info, data = data, name = name, u_name = u_name)
