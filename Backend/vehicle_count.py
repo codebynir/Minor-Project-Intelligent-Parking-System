@@ -106,10 +106,10 @@ class YoloV3Model:
             self.detected_classNames.append(name)
             
             # Draw classname and confidence score 
-            cv2.putText(self.img, f'{name.upper()} {int(confidence_scores[i]*100)}%', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+            # cv2.putText(self.img, f'{name.upper()} {int(confidence_scores[i]*100)}%', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
 
             # Draw bounding rectangle
-            cv2.rectangle(self.img, (x, y), (x + w, y + h), color, 1)
+            # cv2.rectangle(self.img, (x, y), (x + w, y + h), color, 1)
             
             detection.append([x, y, w, h, self.required_class_index.index(classIds[i])])
 
