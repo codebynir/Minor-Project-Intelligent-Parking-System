@@ -9,6 +9,9 @@
   </head>
   <body>
     <section class="wrapper">
+      {% if error_message %}
+        <p class="error-message" style='color:red'>{{ error_message }}</p>
+      {% endif %}
       <div class="form signup">
         <header>User Signup</header>
         <form action="{{url_for('user_signup')}}" method="POST">
