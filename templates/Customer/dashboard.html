@@ -423,9 +423,31 @@
     selectBtn.firstElementChild.innerText = selectedLi.innerText;
     document.getElementById('table_content').innerHTML = '<tr> <td colspan="5" style="text-align:center; color:blue; font-size:20px"> Loading... </td> </tr>';
 //     location.href = "/user/dashboard/"+ selectedLi.innerText +"?name=" + '{{name}}');
-    var company = selectedLi.innerText;
-    var name = "{{ name }}";  // Assuming you have the 'name' variable available in your template
-    window.location.href = `/user/dashboard/${company}?name=${name}`;
+    // updated
+//   var selectedLi = document.getElementById("selected-li");
+  var company = selectedLi.innerText;
+  var name = "{{ name }}";  // Assuming you have the 'name' variable available in your template
+
+  var form = document.createElement("form");
+  form.method = "GET";
+  form.action = "/user/dashboard/update";  // Updated route to submit the form to
+
+  var companyInput = document.createElement("input");
+  companyInput.type = "hidden";
+  companyInput.name = "company";
+  companyInput.value = company;
+
+  var nameInput = document.createElement("input");
+  nameInput.type = "hidden";
+  nameInput.name = "name";
+  nameInput.value = name;
+
+  form.appendChild(companyInput);
+  form.appendChild(nameInput);
+  document.body.appendChild(form);
+
+  form.submit();
+    // updated
   }
 
   searchInp.addEventListener("keyup", () => {
