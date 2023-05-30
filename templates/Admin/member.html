@@ -24,7 +24,11 @@
           <input type="submit" value="Signup" />
         </form>
       </div>
-
+      
+      {% if error_message %}
+        <p class="error-message" style='color:red; text-align:center'>{{ error_message }}</p>
+      {% endif %}
+      
       <div class="form login">
         <header>Member Login</header>
         <form action="{{url_for('member_login')}}" method="POST">
