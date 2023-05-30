@@ -57,7 +57,7 @@ def user_login():
             return redirect(url_for('user_dashboard', name = email))
         else
             error_message = "Invalid Username or Password"
-    return  render_template('Customer/login.html', error_message=error_message)
+    return  render_template('Customer/login_page/user.html', error_message=error_message)
 
 @app.route('/user/<name>/dashboard')
 def user_dashboard(name):
@@ -153,6 +153,7 @@ def member_signup():
 def member_login():
     # instance of database
     db = IPS_db(mysql)
+    error_message = None
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
