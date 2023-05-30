@@ -160,7 +160,9 @@ def member_login():
         # match data from user_table
         if db.match_member_data(email, password):
             return redirect(url_for('member_dashboard', name = email))
-    return  redirect(url_for('member'))
+        else:
+            error_message = "Invalid Username or Password, Login Again!!"
+    return  render_template('Admin/member.html', error_message=error_message)
 
 @app.route('/member/<name>/dashboard')
 def member_dashboard(name):
