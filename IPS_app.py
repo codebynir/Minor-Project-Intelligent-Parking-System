@@ -84,7 +84,9 @@ def user_dashboard_update(company):
     ip_addresses = []
     for row in table_data:
         data.append(row[:-1])
-        ip_addresses.append(row[-1])
+        # commented below code to store slots no. to generate random no. between 0 and no. of slots only not ip_address of camera
+        # ip_addresses.append(row[-1])
+        ip_addresses.append(row[-2])
     available_slots = VehicleCount(ip_addresses)
     for i, d in enumerate(available_slots):
         data[i] = list(data[i])
