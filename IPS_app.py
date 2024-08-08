@@ -2,6 +2,7 @@ from flask import render_template, Flask, request, redirect, url_for, flash
 from Backend.IPS_database import IPS_db
 from flask_mysqldb import MySQL
 from Backend.vehicle_count import VehicleCount
+import random
 
 app = Flask(__name__)
 app.secret_key = "secret key"
