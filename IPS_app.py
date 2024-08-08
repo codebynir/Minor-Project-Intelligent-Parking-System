@@ -82,12 +82,14 @@ def user_dashboard_update(company):
     table_data = cursor.fetchall()
     data = []
     ip_addresses = []
+    slot_list = []
     for row in table_data:
         data.append(row[:-1])
         # commented below code to store slots no. to generate random no. between 0 and no. of slots only not ip_address of camera
         # ip_addresses.append(row[-1])
-        ip_addresses.append(row[-2])
-    available_slots = VehicleCount(ip_addresses)
+        slot_list.append(random.randint(0,row[-2]))
+    # available_slots = VehicleCount(ip_addresses)
+    available_slots = slot_list
     for i, d in enumerate(available_slots):
         data[i] = list(data[i])
         # subtracting total vehicle count from total parking slots to get available vacant slots
