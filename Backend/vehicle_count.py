@@ -10,8 +10,10 @@ def VehicleCount(ip_addresses):
     slot_list = []
     # for camera in ip_addresses:
     for c in ip_addresses:
-        obj = YoloV3Model(c)
-        slot_list.append(obj.realTime())
+        # commented this code because the ip_address is not correct and will fail the execution of code, generating only random numbers now
+        # obj = YoloV3Model(c)
+        # slot_list.append(obj.realTime())
+        slot_list.append(random.randint(0,c))
     return slot_list
 
 
