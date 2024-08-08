@@ -418,37 +418,55 @@
 
   function updateName(selectedLi) {
     searchInp.value = "";
+    const company = selectedLi.innerText;
+    const name = "{{ name }}";  // Ensure this is properly populated
+
+    // Send POST request with selected company and user name
+    fetch('/user/dashboard/update', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            company: company,
+            name: name
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the JSON data returned from the server
+        if (data.error) {
+            // Handle any errors
+            console.error(data.error);
+        } else {
+            updateTable(data);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    // Update dropdown
     addCompany(selectedLi.innerText);
     wrapper.classList.remove("active");
     selectBtn.firstElementChild.innerText = selectedLi.innerText;
     document.getElementById('table_content').innerHTML = '<tr> <td colspan="5" style="text-align:center; color:blue; font-size:20px"> Loading... </td> </tr>';
-//     location.href = "/user/dashboard/"+ selectedLi.innerText +"?name=" + '{{name}}');
-    // updated
-//   var selectedLi = document.getElementById("selected-li");
-  var company = selectedLi.innerText;
-  var name = "{{ name }}";  // Assuming you have the 'name' variable available in your template
+}
 
-  var form = document.createElement("form");
-  form.method = "GET";
-  form.action = "/user/dashboard/update";  // Updated route to submit the form to
+function updateTable(data) {
+    const tableContent = document.getElementById('table_content');
+    tableContent.innerHTML = ''; // Clear existing content
 
-  var companyInput = document.createElement("input");
-  companyInput.type = "hidden";
-  companyInput.name = "company";
-  companyInput.value = company;
-
-  var nameInput = document.createElement("input");
-  nameInput.type = "hidden";
-  nameInput.name = "name";
-  nameInput.value = name;
-
-  form.appendChild(companyInput);
-  form.appendChild(nameInput);
-  document.body.appendChild(form);
-
-  form.submit();
-    // updated
-  }
+    data.data.forEach(row => {
+        const tr = document.createElement('tr');
+        row.forEach(cell => {
+            const td = document.createElement('td');
+            td.innerText = cell;
+            tr.appendChild(td);
+        });
+        tableContent.appendChild(tr);
+    });
+}
 
   searchInp.addEventListener("keyup", () => {
     let arr = [];
