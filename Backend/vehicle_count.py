@@ -4,6 +4,7 @@ import numpy as np
 from Backend.tracker import *
 # from tracker import *
 import time
+import random
 
 """ -- Main Function to get Vehicle Count -- """
 def VehicleCount(ip_addresses):
