@@ -3,6 +3,7 @@ from Backend.IPS_database import IPS_db
 from flask_mysqldb import MySQL
 from Backend.vehicle_count import VehicleCount
 import random
+from flask import jsonify
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -61,20 +62,21 @@ def user_login():
     return  render_template('Customer/login_page/user.html', error_message=error_message)
 
 @app.route('/user/<name>/dashboard')
-def user_dashboard(name):
+def user_dashboard(name, companies_name = '', data = '', u_name = ''):
     # making connection and creating a cursor
     cursor = mysql.connection.cursor()
     cursor.execute('Select distinct(company) from company_table;')
-    company_info = cursor.fetchall()
+    companies_name = cursor.fetchall()
     cursor.execute(f'Select fname from user_table where email="{name}";')
     u_name = cursor.fetchall()
-    return render_template('Customer/dashboard.html', companies_name = company_info, data = '', name = name, u_name = u_name)
+    return render_template('Customer/dashboard.html', companies_name = companies_name, data = data, name = name, u_name = u_name)
 
-@app.route('/user/dashboard/update', methods=['GET', 'POST'])
-def user_dashboard_update(company):
+@app.route('/user/dashboard/update', methods=['POST'])
+def user_dashboard_update():
     # retrieve the values from the submitted form
-    company = request.args.get('company')
-    name = request.args.get('name')
+    request_data = request.get_json()
+    company = request_data['company']
+    name = request_data['name']
     # making connection and creating a cursor
     cursor = mysql.connection.cursor()
     cursor.execute('Select distinct(company) from company_table;')
@@ -98,7 +100,16 @@ def user_dashboard_update(company):
     # Now data contain - [company, address, block, slots, vacant slots]
     cursor.execute(f'Select fname from user_table where email="{name}";')
     u_name = cursor.fetchall()
-    return render_template('Customer/dashboard.html', companies_name = company_info, data = data, name = name, u_name = u_name)
+    # return redirect(url_for('user_dashboard', companies_name = company_info, data = data, name = name, u_name = u_name))
+    # Prepare the JSON response
+    response = {
+        "companies_name": company_info,
+        "data": data,
+        "name": name,
+        "u_name": u_name
+    }
+    print(request_data)
+    return jsonify(response)
 
 @app.route('/user/<name>/booking')
 def bookingrequest(name):
