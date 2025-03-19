@@ -8,3 +8,5 @@ slots.
 **Technologies Used:** HTML, CSS, JavaScript, 
 Python flask framework, Yolo 3 object detection 
 model, MySQL database.
+
+ **Live Project Link:** [IPS Minor Project on Render](https://ips-minor-project.onrender.com)
